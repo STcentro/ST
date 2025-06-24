@@ -141,9 +141,21 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1420977822431689&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<!-- Event snippet for Inscrição conversion page -->
+<!-- Event snippet for Inscrição conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
-  gtag('event', 'conversion', {'send_to': 'AW-11438066479/PWhqCNuesP4YEK-WjM4q'});
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11438066479/PWhqCNuesP4YEK-WjM4q',
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
 
 <!-- Google tag (gtag.js) -->
